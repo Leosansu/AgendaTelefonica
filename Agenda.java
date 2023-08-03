@@ -17,15 +17,15 @@ public class Agenda {
 
         System.out.print("Bairro : ");
         String bairro = sc.nextLine();
-        agendaA.setBairro(bairro);
+        agendaA.setbairro(bairro);
 
         System.out.print("Rua : ");
         String rua = sc.nextLine();
-        agendaA.setRua(rua);
+        agendaA.setrua(rua);
 
         System.out.print("N° : ");
         int numero = sc.nextInt();
-        agendaA.setNumero(numero);
+        agendaA.setnumero(numero);
 
         agendaA.addContato();
         System.out.println();

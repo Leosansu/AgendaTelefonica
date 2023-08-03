@@ -11,16 +11,16 @@ public class MontandoAgenda {
         this.nome = Nome;
     }
 
-    public String getNome() {
+    public String getnome() {
         return nome;
     }
-    public void setRua(String Rua){
+    public void setrua(String Rua){
         this.rua = Rua;
     }
-    public void setNumero(int Numero){
+    public void setnumero(int Numero){
         this.numero = Numero;
     }
-    public void setBairro(String Bairro){
+    public void setbairro(String Bairro){
         this.bairro = Bairro;
     }
 
