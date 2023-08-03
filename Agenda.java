@@ -11,16 +11,21 @@ public class Agenda {
 
         System.out.println("Adicionar Contato  ");
         System.out.print("Nome : ");
-        agendaA.nome = sc.nextLine();
+
+        String nome = sc.nextLine();
+        agendaA.setnome(nome);
 
         System.out.print("Bairro : ");
-        agendaA.bairro = sc.nextLine();
+        String bairro = sc.nextLine();
+        agendaA.setBairro(bairro);
 
         System.out.print("Rua : ");
-        agendaA.rua = sc.nextLine();
+        String rua = sc.nextLine();
+        agendaA.setRua(rua);
 
         System.out.print("N° : ");
-        agendaA.numero = sc.nextInt();
+        int numero = sc.nextInt();
+        agendaA.setNumero(numero);
 
         agendaA.addContato();
         System.out.println();
