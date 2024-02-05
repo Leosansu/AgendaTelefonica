@@ -72,7 +72,7 @@ public class DadosContato {
         for (DadosContato c : contatos) {
 
             if (contato.getNome().equalsIgnoreCase(c.getNome())) {
-                contatoEncontrado = contato;
+                contatoEncontrado = c;
                 break;
             }
         }
