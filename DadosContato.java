@@ -66,33 +66,20 @@ public class DadosContato {
         contatos.remove(contato);
     }
 
-    public DadosContato ProcurarContato(DadosContato contato) {
-        boolean contatoEncontrado = false;
+    public DadosContato ProcurarContatoPorNome(DadosContato contato) {
+        DadosContato contatoEncontrado = null;
+
         for (DadosContato c : contatos) {
 
             if (contato.getNome().equalsIgnoreCase(c.getNome())) {
-                System.out.print("Nome: " + c.getNome() + "\n");
-                System.out.print("E-mail: " + c.getEmail() + "\n");
-                System.out.print("Fone: " + c.getTelefone() + "\n");
-                System.out.print("Aniversário: " + sdf.format(c.getDataNascimento()));
-                contatoEncontrado = true;
-
+                contatoEncontrado = contato;
+                break;
             }
-
         }
-        if (!contatoEncontrado) {
-            System.out.println("Contato inexistente");
 
-
-        }
-        return contato;
+        return contatoEncontrado;
 
     }
-
-//return (DadosContato) contatos;
-
-
-
 
     @Override
     public String toString() {

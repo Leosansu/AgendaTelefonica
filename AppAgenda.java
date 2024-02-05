@@ -57,7 +57,17 @@ public class AppAgenda {
         sc.nextLine();
         DadosContato contatoPesquisa = new DadosContato();
         contatoPesquisa.setNome(pesquisa);
-        Contatos.ProcurarContato(contatoPesquisa);
+        Contatos.ProcurarContatoPorNome(contatoPesquisa);
+
+        // verifica se contatoPesquisa teve algum retorno e entao printa as infoformacoes para o usuario
+        if (contatoPesquisa.getNome() != null) {
+            System.out.print("Nome: " + contatoPesquisa.getNome() + "\n");
+            System.out.print("E-mail: " + contatoPesquisa.getEmail() + "\n");
+            System.out.print("Fone: " + contatoPesquisa.getTelefone() + "\n");
+            System.out.print("Aniversário: " + sdf.format(contatoPesquisa.getDataNascimento()));
+        } else {
+            System.out.println("Contato inexistente");
+        }
         }
     }
 
