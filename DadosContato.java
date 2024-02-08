@@ -66,14 +66,12 @@ public class DadosContato {
         contatos.remove(contato);
     }
 
-    public DadosContato ProcurarContatoPorNome(DadosContato contato) {
-        DadosContato contatoEncontrado = null;
+    public List<DadosContato> ProcurarContatoPorNome(List<DadosContato> listaContatos, String nomeContato) {
+        List<DadosContato> contatoEncontrado = new ArrayList<>();
 
-        for (DadosContato c : contatos) {
-
-            if (contato.getNome().equalsIgnoreCase(c.getNome())) {
-                contatoEncontrado = c;
-                break;
+        for (DadosContato c : listaContatos) {
+            if (c.getNome().equalsIgnoreCase(nomeContato)) {
+                contatoEncontrado.add(c);
             }
         }
 
