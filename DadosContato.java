@@ -66,43 +66,48 @@ public class DadosContato {
         contatos.remove(contato);
     }
 
-    public DadosContato ProcurarContato(DadosContato contato) {
-        boolean contatoEncontrado = false;
+    public List<DadosContato> ProcurarContatoPorNome(String nomeContato) {
+        List<DadosContato> contatoEncontrado = new ArrayList<>();
+
         for (DadosContato c : contatos) {
-
-            if (contato.getNome().equalsIgnoreCase(c.getNome())) {
-                System.out.print("Nome: " + c.getNome() + "\n");
-                System.out.print("E-mail: " + c.getEmail() + "\n");
-                System.out.print("Fone: " + c.getTelefone() + "\n");
-                System.out.print("Aniversário: " + sdf.format(c.getDataNascimento()));
-                contatoEncontrado = true;
-
+            if (c.getNome().equalsIgnoreCase(nomeContato)) {
+                contatoEncontrado.add(c);
             }
-
         }
-        if (!contatoEncontrado) {
-            System.out.println("Contato inexistente");
-
-
-        }
-        return contato;
-
+        return contatoEncontrado;
     }
-
-//return (DadosContato) contatos;
-
-
-
 
     @Override
     public String toString() {
-        return "\nNome: " + nome
-                + "\nE_mail: "
-                + email
-                + "\nFone: " + telefone + "\n"
-                +"Aniversário: "+sdf.format(dataNascimento)+"\n";
+        return "\nNome: "+getNome()+"\n"
+                +"E-mail: "+getEmail()+"\n"
+                +"Telefone: "+getTelefone()+"\n"
+                +"Nascimento: "+sdf.format(getDataNascimento())+"\n";
     }
 }
+
+
+
+
+// public List<DadosContato> ProcurarContatoPorNome(List<DadosContato> listaContatos, String nomeContato) {
+//        List<DadosContato> contatoEncontrado = new ArrayList<>();
+//
+//        for (DadosContato c : listaContatos) {
+//            if (c.getNome().equalsIgnoreCase(nomeContato)) {
+//                contatoEncontrado.add(c);
+//            }
+//        }
+//        return contatoEncontrado;
+
+//@Override
+//    public String toString() {
+//        return "\nNome: " + nome
+//                + "\nE_mail: "
+//                + email
+//                + "\nFone: " + telefone + "\n";
+//
+//    }
+//}
 
 
 

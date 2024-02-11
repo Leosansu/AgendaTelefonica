@@ -21,7 +21,8 @@ public class AppAgenda {
         int tel = sc.nextInt();
         System.out.print("Data de nascimento: ");
         Date dataNasci = sdf.parse(sc.next());
-        Contatos.AddContato(new DadosContato(nome, email, tel, dataNasci));
+        DadosContato contact = new DadosContato(nome, email, tel, dataNasci);
+        Contatos.AddContato(contact);
 
         System.out.print("Adicionar contato, sim ou não? (s/n) : ");
         sc.nextLine();
@@ -45,22 +46,47 @@ public class AppAgenda {
 
             }
         }
-        System.out.println("--Contatos-- ");
-        for (DadosContato d : Contatos.getContatos()) {
-            System.out.print(d);
+        else {
+            System.out.println("Nenhum contato adicionado");
+
         }
+
         System.out.println();
         System.out.print("Pesquisar: ");
         sc.nextLine();
         String pesquisa = sc.next();
 
         sc.nextLine();
-        DadosContato contatoPesquisa = new DadosContato();
-        contatoPesquisa.setNome(pesquisa);
-        Contatos.ProcurarContato(contatoPesquisa);
+        List<DadosContato> contatoPesquisa = Contatos.ProcurarContatoPorNome(pesquisa);
+        if (contatoPesquisa.isEmpty() ) {
+            System.out.print("Contato inexistente");
+        }
+        else {
+            for (DadosContato d : contatoPesquisa) {
+                System.out.print("Nome: " + d.getNome() + "\n");
+                System.out.print("E-mail: " + d.getEmail() + "\n");
+                System.out.print("Fone: " + d.getTelefone() + "\n");
+                System.out.print("Aniversário: " + sdf.format(d.getDataNascimento()));
+            }
         }
     }
+}
+
+
+//List<DadosContato> contatoPesquisa = Contatos.ProcurarContatoPorNome(pesquisa);
+//        for (DadosContato d : contatoPesquisa) {
+//
+//            if (d.getNome().isEmpty()) {
+//                System.out.print("Contato inexistente");
+//            }
+//            else {
+//                System.out.print("Nome: " + d.getNome() + "\n");
+//                System.out.print("E-mail: " + d.getEmail() + "\n");
+//                System.out.print("Fone: " + d.getTelefone() + "\n");
+//                System.out.print("Aniversário: " + sdf.format(d.getDataNascimento()));
+//
+//            }
+
 
 
 //System.out.printf("Aniversário: "+sdf.format(usuario.getDataNascimento())+"\n");
-
